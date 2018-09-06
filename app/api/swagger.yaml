@@ -1,0 +1,102 @@
+---
+swagger: "2.0"
+info: 
+  description: |
+    #Overview
+    This is sample swagger documentation.
+  version: "1.0.0"
+  title: "Sample API"
+host: "localhost:5001"
+basePath: "/api"
+tags:
+- name: "Inventory"
+  description: |
+    Manage inventory.
+schemes:
+- "https"
+paths:
+  /inventory/ping:
+    get:
+      tags:
+      - System
+      operationId: ping
+      summary: "Check server status."
+      description: "Ping test."
+      responses:
+        200:
+          description: "Up"
+          schema:
+            $ref: "#/definitions/ping"
+        500:
+          description: "Unexpected Error"
+          schema:
+            $ref: "#/definitions/errors"
+  /inventory/{itemId}:
+    get:
+      tags: 
+      - "Items"
+      operationId: "getItem"
+      summary: "Search Inventory"
+      description: |
+        Search Inventory
+      parameters:
+        - name: "itemId"
+          in: "path"
+          description: "Get item details from inventory"
+          type: "string"
+          required: true
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: "#/definitions/inventoryItems"
+        404:
+          description: "Not Found"
+          schema:
+            $ref: "#/definitions/errors"
+        500:
+          description: "Unexpected Error"
+          schema:
+            $ref: "#/definitions/errors"
+      
+definitions: 
+  # standard error messages
+  errors:
+    description: Returns list of error(s) and their description.
+    type: "object"
+    properties:
+      errors:
+        type: "array"
+        items:
+          $ref: "#/definitions/errorModel"
+  errorModel:
+    type: "object"
+# simple ping test
+  ping:
+    type: "object"
+    properties:
+      status:
+        type: "string"
+  inventoryItems:
+    type: "object"
+    properties:
+      data:
+          type: "array"
+          items:
+            $ref: "#/definitions/itemsResponseModel"
+
+  itemsResponseModel:
+    type: "object"
+    properties:
+      id:
+        type: string
+      itemType:
+        type: string
+      itemCategory:
+        type: string
+      code:
+        type: string
+      availability:
+        type: "boolean"
+      availableCount:
+        type: integer

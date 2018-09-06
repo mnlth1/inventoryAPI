@@ -1,0 +1,17 @@
+---
+swagger: "2.0"
+info: 
+  description: |
+    #Overview
+    This is sample swagger documentation.
+  version: "1.0.0"
+  title: "Sample API"
+host: "localhost:5001"
+basePath: "/api"
+tags:
+- name: "Inventory"
+  description: |
+    Manage inventory.
+schemes:
+- "https"
+paths:

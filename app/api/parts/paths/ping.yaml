@@ -1,0 +1,16 @@
+  /inventory/ping:
+    get:
+      tags:
+      - System
+      operationId: ping
+      summary: "Check server status."
+      description: "Ping test."
+      responses:
+        200:
+          description: "Up"
+          schema:
+            $ref: "#/definitions/ping"
+        500:
+          description: "Unexpected Error"
+          schema:
+            $ref: "#/definitions/errors"

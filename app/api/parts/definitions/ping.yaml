@@ -1,0 +1,6 @@
+# simple ping test
+  ping:
+    type: "object"
+    properties:
+      status:
+        type: "string"

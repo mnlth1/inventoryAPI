@@ -1,0 +1,12 @@
+definitions: 
+  # standard error messages
+  errors:
+    description: Returns list of error(s) and their description.
+    type: "object"
+    properties:
+      errors:
+        type: "array"
+        items:
+          $ref: "#/definitions/errorModel"
+  errorModel:
+    type: "object"

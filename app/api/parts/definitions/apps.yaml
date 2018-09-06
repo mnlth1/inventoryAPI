@@ -1,0 +1,24 @@
+
+  inventoryItems:
+    type: "object"
+    properties:
+      data:
+          type: "array"
+          items:
+            $ref: "#/definitions/itemsResponseModel"
+
+  itemsResponseModel:
+    type: "object"
+    properties:
+      id:
+        type: string
+      itemType:
+        type: string
+      itemCategory:
+        type: string
+      code:
+        type: string
+      availability:
+        type: "boolean"
+      availableCount:
+        type: integer

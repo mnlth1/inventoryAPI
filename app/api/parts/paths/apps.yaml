@@ -1,0 +1,28 @@
+  /inventory/{itemId}:
+    get:
+      tags: 
+      - "Items"
+      operationId: "getItem"
+      summary: "Search Inventory"
+      description: |
+        Search Inventory
+      parameters:
+        - name: "itemId"
+          in: "path"
+          description: "Get item details from inventory"
+          type: "string"
+          required: true
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: "#/definitions/inventoryItems"
+        404:
+          description: "Not Found"
+          schema:
+            $ref: "#/definitions/errors"
+        500:
+          description: "Unexpected Error"
+          schema:
+            $ref: "#/definitions/errors"
+      
