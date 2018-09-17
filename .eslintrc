@@ -10,5 +10,9 @@
     "node",
     "promise",
     "standard"
-  ]
+  ],
+  
+  "rules": {
+    "quotes": [2, "single"]
+  }
 }

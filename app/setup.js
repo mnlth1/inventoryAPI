@@ -66,7 +66,7 @@ const options = {
                 console.log('Error while writing swagger yaml file')
             }
         })
-        swaggerDoc.host = "localhost:5001"
+        swaggerDoc.host = 'localhost:5001'
         console.log('Swagger doc generated successfully ' + swaggerDoc)
         return swaggerDoc
       }

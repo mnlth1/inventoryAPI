@@ -5,7 +5,7 @@ module.exports.sendResponse = (statusCode, obj, req, res) => {
     switch(statusCode) {
         case 200:
         case 201:
-            res.setHeader('Content-Type', 'application\json')
+            res.setHeader('Content-Type', 'application/json')
             res.end(JSON.stringify(obj || {}, null, 2))
             break;
         case 202:
